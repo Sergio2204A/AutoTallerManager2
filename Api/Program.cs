@@ -1,14 +1,23 @@
+using Api.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// ── Services ──────────────────────────────────────────────────────────────────
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+// Application layer (MediatR + FluentValidation + ValidationBehavior pipeline)
+builder.Services.AddApplicationServices();
+
+// Infrastructure layer (DbContext + UnitOfWork)
+builder.Services.AddInfrastructureServices(builder.Configuration);
+
+// JWT Auth + Authorization Policies
+builder.Services.AddJwt(builder.Configuration);
+
+// ── Pipeline ──────────────────────────────────────────────────────────────────
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -16,6 +25,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
