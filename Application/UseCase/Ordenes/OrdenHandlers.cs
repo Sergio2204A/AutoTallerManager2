@@ -28,7 +28,6 @@ public sealed class AsignarMecanicoHandler : IRequestHandler<AsignarMecanico>
 {
     private readonly IUnitOfWork _uow;
     public AsignarMecanicoHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task Handle(AsignarMecanico req, CancellationToken ct)
     {
         var orden = await _uow.Ordenes.GetByIdAsync(req.OrdenId, ct)
@@ -43,7 +42,6 @@ public sealed class RegistrarDiagnosticoHandler : IRequestHandler<RegistrarDiagn
 {
     private readonly IUnitOfWork _uow;
     public RegistrarDiagnosticoHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task Handle(RegistrarDiagnostico req, CancellationToken ct)
     {
         var orden = await _uow.Ordenes.GetByIdAsync(req.OrdenId, ct)
@@ -58,7 +56,6 @@ public sealed class AprobarOrdenJefeHandler : IRequestHandler<AprobarOrdenJefe>
 {
     private readonly IUnitOfWork _uow;
     public AprobarOrdenJefeHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task Handle(AprobarOrdenJefe req, CancellationToken ct)
     {
         var orden = await _uow.Ordenes.GetByIdAsync(req.OrdenId, ct)
@@ -73,7 +70,6 @@ public sealed class AprobarOrdenClienteHandler : IRequestHandler<AprobarOrdenCli
 {
     private readonly IUnitOfWork _uow;
     public AprobarOrdenClienteHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task Handle(AprobarOrdenCliente req, CancellationToken ct)
     {
         var orden = await _uow.Ordenes.GetByIdAsync(req.OrdenId, ct)
@@ -88,7 +84,6 @@ public sealed class RechazarOrdenClienteHandler : IRequestHandler<RechazarOrdenC
 {
     private readonly IUnitOfWork _uow;
     public RechazarOrdenClienteHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task Handle(RechazarOrdenCliente req, CancellationToken ct)
     {
         var orden = await _uow.Ordenes.GetByIdAsync(req.OrdenId, ct)
@@ -103,7 +98,6 @@ public sealed class IniciarReparacionHandler : IRequestHandler<IniciarReparacion
 {
     private readonly IUnitOfWork _uow;
     public IniciarReparacionHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task Handle(IniciarReparacion req, CancellationToken ct)
     {
         var orden = await _uow.Ordenes.GetByIdAsync(req.OrdenId, ct)
@@ -118,7 +112,6 @@ public sealed class CompletarOrdenHandler : IRequestHandler<CompletarOrden>
 {
     private readonly IUnitOfWork _uow;
     public CompletarOrdenHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task Handle(CompletarOrden req, CancellationToken ct)
     {
         var orden = await _uow.Ordenes.GetByIdAsync(req.OrdenId, ct)
@@ -133,7 +126,6 @@ public sealed class CancelarOrdenHandler : IRequestHandler<CancelarOrden>
 {
     private readonly IUnitOfWork _uow;
     public CancelarOrdenHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task Handle(CancelarOrden req, CancellationToken ct)
     {
         var orden = await _uow.Ordenes.GetByIdAsync(req.OrdenId, ct)
@@ -148,7 +140,6 @@ public sealed class GetOrdenByIdHandler : IRequestHandler<GetOrdenById, OrdenSer
 {
     private readonly IUnitOfWork _uow;
     public GetOrdenByIdHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task<OrdenServicio?> Handle(GetOrdenById req, CancellationToken ct)
         => await _uow.Ordenes.GetByIdWithDetailsAsync(req.Id, ct);
 }
@@ -158,7 +149,6 @@ public sealed class GetOrdenesPagedHandler
 {
     private readonly IUnitOfWork _uow;
     public GetOrdenesPagedHandler(IUnitOfWork uow) => _uow = uow;
-
     public async Task<(IReadOnlyList<OrdenServicio> Items, int Total)> Handle(GetOrdenesPaged req, CancellationToken ct)
     {
         var items = await _uow.Ordenes.GetPagedAsync(req.Page, req.PageSize, req.Search, ct);

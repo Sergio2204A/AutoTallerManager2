@@ -13,7 +13,12 @@ public sealed class CreateRepuestoHandler : IRequestHandler<CreateRepuesto, int>
     {
         if (await _uow.Repuestos.ExistsCodigoAsync(req.Codigo, ct))
             throw new InvalidOperationException("Ya existe un repuesto con ese código.");
-        var r = new Repuesto { Codigo = req.Codigo, Nombre = req.Nombre, Descripcion = req.Descripcion, Categoria = req.Categoria, CantidadStock = req.CantidadStock, StockMinimo = req.StockMinimo, PrecioCompra = req.PrecioCompra, PrecioVenta = req.PrecioVenta };
+        var r = new Repuesto
+        {
+            Codigo = req.Codigo, Nombre = req.Nombre, Descripcion = req.Descripcion,
+            Categoria = req.Categoria, CantidadStock = req.CantidadStock,
+            StockMinimo = req.StockMinimo, PrecioCompra = req.PrecioCompra, PrecioVenta = req.PrecioVenta
+        };
         await _uow.Repuestos.AddAsync(r, ct);
         await _uow.SaveChangesAsync(ct);
         return r.Id;
