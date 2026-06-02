@@ -24,7 +24,7 @@ public sealed class VehiculoRepository : IVehiculoRepository
 
     public async Task<IReadOnlyList<Vehiculo>> GetPagedAsync(int page, int pageSize, string? search = null, CancellationToken ct = default)
     {
-        var q = _db.Vehiculos.Where(v => !v.IsDeleted).Include(v => v.Cliente);
+        IQueryable<Vehiculo> q = _db.Vehiculos.Where(v => !v.IsDeleted).Include(v => v.Cliente);
         if (!string.IsNullOrWhiteSpace(search))
             q = q.Where(v => v.Placa.Contains(search) || v.Marca.Contains(search) || v.Modelo.Contains(search) || v.Vin.Contains(search));
         return await q.OrderBy(v => v.Placa).Skip((page - 1) * pageSize).Take(pageSize).ToListAsync(ct);
