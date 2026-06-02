@@ -1,5 +1,4 @@
 using Mapster;
-using MapsterMapper;
 
 namespace Api.Extensions;
 
@@ -10,7 +9,7 @@ public static class MapsterExtensions
         var config = TypeAdapterConfig.GlobalSettings;
         config.Scan(typeof(MapsterExtensions).Assembly);
         services.AddSingleton(config);
-        services.AddScoped<IMapper, ServiceMapper>();
+        // Note: MapsterMapper.ServiceMapper requires MapsterMapper package; using simple Mapster is sufficient
         return services;
     }
 }
