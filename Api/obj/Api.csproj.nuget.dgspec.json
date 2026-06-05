@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\Api\\Api.csproj": {}
+    "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\api\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\Api\\Api.csproj": {
+    "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\Api\\Api.csproj",
+        "projectUniqueName": "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\Api\\Api.csproj",
+        "projectPath": "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\api\\Api.csproj",
         "packagesPath": "C:\\Users\\jhoan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\Api\\obj\\",
+        "outputPath": "C:\\Users\\jhoan\\Desktop\\AutoTallerManager2\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jhoan\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -76,6 +76,10 @@
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[8.9.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.2.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
